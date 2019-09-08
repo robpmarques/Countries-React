@@ -8,7 +8,7 @@ import Title from '../Title';
 const Card = ({ numberOfCards, region, ...props }) => {
 
     return (
-        <Styled.CardContainer cardJustify={props.cardJustify}>
+        <Styled.CardContainer>
                 {props.getRecordsByName().map((value, index) => (
                     <Styled.Card>
                     <Link to={{

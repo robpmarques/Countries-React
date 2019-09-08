@@ -10,6 +10,7 @@ export const CardContainer = styled.div`
 
 export const CardBody = styled.div`
     padding: 0 0 15px 15px;
+    box-shadow: 0px 1px 3px -2px ${props => props.theme.text};
     width: 295px;
     margin: 0 auto;
 
