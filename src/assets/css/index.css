@@ -1,0 +1,36 @@
+@font-face { font-family: "Nunito-Sans"; src: url("../font/NunitoSans-Regular.ttf"); }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito-Sans";
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+p, a {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+input, select {
+    outline: none;
+}
