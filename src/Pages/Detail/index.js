@@ -68,7 +68,7 @@ export default class Detail extends Component {
                   <Styled.CountryDetails>
                     <Styled.TitleDiv margin="20px">
                       <Title>{country.name}</Title>
-                    </Styled.TitleDiv>
+                    </Styled.TitleDiv>  
                     <Styled.Boxes mobileMargin>
                       <Text><strong>Native Name:</strong> {country.nativeName}</Text>
                       <Text><strong>Population: </strong>{numeral(country.population).format('0,00,000')}</Text>
