@@ -33,11 +33,12 @@ export const Button = styled.div`
 
 export const NoLink = styled(Button)`
     padding: 5px 0px;
-    margin: 0 5px 5px 5px;
+    margin: 0 5px 10px 5px;
     text-align: center;
-    box-shadow: 0px 0px 5px 3px #f2f2f2;
+    color: ${props => props.theme.text};
+    box-shadow: 0px 0px 3px 0 ${props => props.theme.text};
     border-radius: 5px;
-    background-color: #FFF;
+    background-color: ${props => props.theme.primary};
     display: inline-block;
 
     @media (max-width: 768px) {
