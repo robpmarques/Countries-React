@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import api from '../../services/api';
+import axios from 'axios';
 import * as Styled from './styles';
 import { GlobalStyle } from '../../assets/css/global';
 import { switchTheme, colorScheme } from '../../utils/colors';
@@ -31,7 +31,7 @@ export default class Main extends Component {
 
   async componentDidMount() {
 
-    let countriesResult = await api.get('https://restcountries.eu/rest/v2/all');
+    let countriesResult = await axios.get('https://restcountries.eu/rest/v2/all');
 
     this.setState({ countries: countriesResult.data });
     this.setState({ currentThemeObj: colorScheme });

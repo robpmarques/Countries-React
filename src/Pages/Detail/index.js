@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import api from '../../services/api';
+import axios from 'axios';
 import Header from '../../Components/Header';
 import Text from '../../Components/Text';
 import Title from '../../Components/Title';
@@ -28,7 +28,7 @@ export default class Detail extends Component {
   async componentDidMount() {
 
 
-    let countriesResult = await api.get(`https://restcountries.eu/rest/v2/alpha/${this.props.match.params.countryCode}`);
+    let countriesResult = await axios.get(`https://restcountries.eu/rest/v2/alpha/${this.props.match.params.countryCode}`);
 
     console.log(countriesResult);
 
