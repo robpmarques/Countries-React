@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Header = styled.div`
 
     background-color: ${props => props.theme.primary};
-    box-shadow: 0px -4px 8px 0px ${props => props.theme.text};
+    box-shadow: 0px -7px 9px 0px ${props => props.theme.text};
     width: 100%;
     padding: 20px 0;
 `;

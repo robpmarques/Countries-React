@@ -62,7 +62,7 @@ export default class Main extends Component {
 
       let countryCondition = countries.name.toLowerCase().indexOf(this.state.countryInput.toLowerCase()) !== -1;
 
-      if (this.state.selectedRegion != '') {
+      if (this.state.selectedRegion !== '') {
 
         return countryCondition && countries.region === this.state.selectedRegion;
       }

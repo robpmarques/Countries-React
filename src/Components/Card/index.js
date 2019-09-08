@@ -5,12 +5,13 @@ import numeral from 'numeral';
 import Text from '../Text';
 import Title from '../Title';
 
-const Card = ({ numberOfCards, region, ...props }) => {
+
+const Card = ({ ...props }) => {
 
     return (
-        <Styled.CardContainer>
-                {props.getRecordsByName().map((value, index) => (
-                    <Styled.Card>
+        <Styled.CardContainer justify={props.getRecordsByName().length}>
+            {props.getRecordsByName().map((value) => (
+                <Styled.Card>
                     <Link to={{
                         pathname: '/Detail/' + value.alpha2Code
                     }}>
@@ -21,9 +22,9 @@ const Card = ({ numberOfCards, region, ...props }) => {
                             <Text><strong>Region: </strong>{value.region}</Text>
                             <Text><strong>Capital: </strong>{value.capital}</Text>
                         </Styled.CardBody>
-                        </Link>
-                    </Styled.Card>
-                ))}
+                    </Link>
+                </Styled.Card>
+            ))}
         </Styled.CardContainer>
     )
 };
