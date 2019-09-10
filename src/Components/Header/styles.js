@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Header = styled.div`
+export const Header = styled.header`
 
     background-color: ${props => props.theme.primary};
     box-shadow: 0px -7px 9px 0px ${props => props.theme.text};
@@ -19,15 +19,4 @@ export const TitleContainer = styled.div`
 
 export const LinkColorMode = styled.div`
     cursor: pointer;
-`;
-
-export const Title = styled.h1`
-    margin: 0;
-    color: ${props => props.theme.text}
-`;
-
-export const Text = styled.p`
-
-    color: ${props => props.theme.text}
-
 `;

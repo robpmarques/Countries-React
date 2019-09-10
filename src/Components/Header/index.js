@@ -3,21 +3,21 @@ import Icon from '../Icon/';
 import * as Styled from './styles';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import Text from '../Text';
+import Title from '../Title';
 
+const Header = ({ ...props }) => {
 
-const Header = ({...props}) => {
+    return (
 
-    return(
-
-    <Styled.Header>
-        <Styled.TitleContainer>
-                <Styled.Title>Where in the world?</Styled.Title>
+        <Styled.Header>
+            <Styled.TitleContainer>
+                <Title>Where in the world?</Title>
                 <Styled.LinkColorMode onClick={props.handleThemeChange}>
                     <Text noMargin>{props.colorMode} Mode</Text>
-            </Styled.LinkColorMode>
-            <Icon icon={faMoon} right="90px" color={props.color} />
-        </Styled.TitleContainer>
-    </Styled.Header>
+                </Styled.LinkColorMode>
+                <Icon icon={faMoon} moon />
+            </Styled.TitleContainer>
+        </Styled.Header>
     )
 };
 

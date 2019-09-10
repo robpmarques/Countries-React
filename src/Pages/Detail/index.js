@@ -59,7 +59,7 @@ export default class Detail extends Component {
               <Styled.Container>
                 <Styled.Button>
                   <Link to="/">
-                    <Icon icon={faArrowLeft} color={this.state.currentThemeObj.text} left="25px" /><Text noMargin>Back</Text></Link>
+                    <Icon icon={faArrowLeft} arrow/><Text noMargin>Back</Text></Link>
                 </Styled.Button>
                 <Styled.CountryDetailContainer>
                   <Styled.ImageDiv>

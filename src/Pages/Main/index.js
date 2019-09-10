@@ -6,6 +6,8 @@ import { switchTheme, colorScheme } from '../../utils/colors';
 import { ThemeProvider } from 'styled-components';
 import Card from '../../Components/Card/';
 import Header from '../../Components/Header';
+import Input from '../../Components/Input';
+import Select from '../../Components/Select';
 import Icon from '../../Components/Icon';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -38,7 +40,6 @@ export default class Main extends Component {
   }
 
   handleThemeChange() {
-
     switchTheme();
     this.setState({ currentThemeObj: colorScheme });
 
@@ -60,7 +61,7 @@ export default class Main extends Component {
 
     let filteredCountry = this.state.countries.filter((countries) => {
 
-      let countryCondition = countries.name.toLowerCase().indexOf(this.state.countryInput.toLowerCase()) !== -1;
+      let countryCondition = countries.name.toLowerCase().startsWith(this.state.countryInput.toLowerCase()) !== false;
 
       if (this.state.selectedRegion !== '') {
 
@@ -82,21 +83,20 @@ export default class Main extends Component {
             <Header
               handleThemeChange={this.handleThemeChange}
               colorMode={this.state.currentThemeObj.name}
-              color={this.state.currentThemeObj.text}
             />
             <Styled.Container>
               <Styled.FilterContainer>
                 <Styled.InputContainer>
-                  <Icon icon={faSearch} left="20px" color={this.state.currentThemeObj.text} />
-                  <Styled.Input value={this.state.countryInput} onChange={(e) => this.handleInputChange(e)} placeholder="Search for a country..." />
+                  <Icon icon={faSearch} search />
+                  <Input input={this.state.countryInput} inputChange={(e) => this.handleInputChange(e)} placeholder="Search for a country..." />
                 </Styled.InputContainer>
                 <Styled.SelectDiv>
-                  <Styled.Select value={this.state.selectedRegion} onChange={(e) => this.handleSelectChange(e)}>
+                  <Select select={this.state.selectedRegion} selectChange={(e) => this.handleSelectChange(e)}>
                     <Styled.Option value="">Filter by region</Styled.Option>
                     {this.state.region.map((value) => (
                       <Styled.Option value={value}>{value}</Styled.Option>
                     ))}
-                  </Styled.Select>
+                  </Select>
                 </Styled.SelectDiv>
               </Styled.FilterContainer>
               {<Card
