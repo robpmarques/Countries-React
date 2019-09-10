@@ -8,7 +8,6 @@ import Card from '../../Components/Card/';
 import Header from '../../Components/Header';
 import Input from '../../Components/Input';
 import Select from '../../Components/Select';
-import Icon from '../../Components/Icon';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 export default class Main extends Component {
@@ -79,7 +78,7 @@ export default class Main extends Component {
       <>
         <GlobalStyle theme={this.state.currentThemeObj} />
         <ThemeProvider theme={this.state.currentThemeObj}>
-          <Styled.Main>
+          <>
             <Header
               handleThemeChange={this.handleThemeChange}
               colorMode={this.state.currentThemeObj.name}
@@ -87,7 +86,7 @@ export default class Main extends Component {
             <Styled.Container>
               <Styled.FilterContainer>
                 <Styled.InputContainer>
-                  <Icon icon={faSearch} search />
+                  <Styled.searchIcon icon={faSearch} />
                   <Input input={this.state.countryInput} inputChange={(e) => this.handleInputChange(e)} placeholder="Search for a country..." />
                 </Styled.InputContainer>
                 <Styled.SelectDiv>
@@ -106,7 +105,7 @@ export default class Main extends Component {
                 region={this.state.selectedRegion} />
               }
             </Styled.Container>
-          </Styled.Main>
+          </>
         </ThemeProvider>
       </>
     )

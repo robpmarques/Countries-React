@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from '../Icon/';
 import * as Styled from './styles';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import Text from '../Text';
@@ -15,7 +14,7 @@ const Header = ({ ...props }) => {
                 <Styled.LinkColorMode onClick={props.handleThemeChange}>
                     <Text noMargin>{props.colorMode} Mode</Text>
                 </Styled.LinkColorMode>
-                <Icon icon={faMoon} moon />
+                <Styled.MoonIcon icon={faMoon} />
             </Styled.TitleContainer>
         </Styled.Header>
     )

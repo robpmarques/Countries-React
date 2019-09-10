@@ -16,7 +16,7 @@ background-color: ${props => props.theme.primary};
 `;
 
 const Input = ({...props}) => (
-    <StyledInput value={props.input} onChange={(e) => props.inputChange(e)} placeholder={props.placeholder} />
+    <StyledInput value={props.input} onChange={(e) => props.inputChange(e)} {...props} />
 )
 
 export default Input;

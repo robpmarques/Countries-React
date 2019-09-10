@@ -8,7 +8,6 @@ import { switchTheme, colorScheme } from '../../utils/colors';
 import { Link } from "react-router-dom";
 import * as Styled from './styles';
 import numeral from 'numeral';
-import Icon from '../../Components/Icon';
 import { ThemeProvider } from 'styled-components';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -59,44 +58,44 @@ export default class Detail extends Component {
               <Styled.Container>
                 <Styled.Button>
                   <Link to="/">
-                    <Icon icon={faArrowLeft} arrow/><Text noMargin>Back</Text></Link>
+                    <Styled.ArrowIcon icon={faArrowLeft} /><Text noMargin>Back</Text></Link>
                 </Styled.Button>
                 <Styled.CountryDetailContainer>
                   <Styled.ImageDiv>
                     <Styled.Image src={country.flag} alt="" />
                   </Styled.ImageDiv>
                   <Styled.CountryDetails>
-                    <Styled.TitleDiv margin="20px">
+                    <Styled.TitleDiv>
                       <Title>{country.name}</Title>
                     </Styled.TitleDiv>  
                     <Styled.Boxes mobileMargin>
-                      <Text><strong>Native Name:</strong> {country.nativeName}</Text>
-                      <Text><strong>Population: </strong>{numeral(country.population).format('0,00,000')}</Text>
-                      <Text><strong>Region:</strong> {country.region}</Text>
-                      <Text><strong>Sub-region:</strong> {country.subregion}</Text>
-                      <Text><strong>Capital:</strong> {country.capital}</Text>
+                      <Text><Styled.BoldText>Native Name:</Styled.BoldText> {country.nativeName}</Text>
+                      <Text><Styled.BoldText>Population:</Styled.BoldText> {numeral(country.population).format('0,00,000')}</Text>
+                      <Text><Styled.BoldText>Region:</Styled.BoldText> {country.region}</Text>
+                      <Text><Styled.BoldText>Sub-region:</Styled.BoldText> {country.subregion}</Text>
+                      <Text><Styled.BoldText>Capital:</Styled.BoldText> {country.capital}</Text>
                     </Styled.Boxes>
                     <Styled.Boxes>
-                      <Text><strong>Top Level Domain:</strong> {country.topLevelDomain}</Text>
-                      <Text><strong>Currencies:</strong> {country.currencies.map((currencies) => (
+                    <Text><Styled.BoldText>Top Level Domain: </Styled.BoldText> {country.topLevelDomain}</Text>
+                      <Text><Styled.BoldText>Currencies: </Styled.BoldText>{country.currencies.map((currencies) => (
                         <>
-                          {`${currencies.code} `}
+                          {` ${currencies.code} `}
                         </>
                       ))}</Text>
-                      <Text><strong>Language:</strong> {country.languages.map((languages) => (
+                      <Text><Styled.BoldText>Language: </Styled.BoldText>{country.languages.map((languages) => (
                         <>
-                          {`${languages.name} `}
+                          {` ${languages.name} `}
                         </>
                       ))}</Text>
                     </Styled.Boxes>
-                    <Styled.Boxes mt20 maxWidth>
-                      <Text bold borderMargin inlineBlock maxWidth>Border Countries: </Text>
+                    <Styled.BorderBoxes>
+                      <Styled.BoldText>Border Countries: </Styled.BoldText>
                       {country.borders.map((borders) => (
-                        <Styled.NoLink>
+                        <Styled.BorderButton>
                           {borders}
-                        </Styled.NoLink>
+                        </Styled.BorderButton>
                       ))}
-                    </Styled.Boxes>
+                    </Styled.BorderBoxes>
                   </Styled.CountryDetails>
                 </Styled.CountryDetailContainer>
               </Styled.Container>

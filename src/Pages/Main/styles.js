@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Icon from '../../Components/Icon';
 
 export const InputContainer = styled.div`
 
@@ -11,11 +12,6 @@ export const InputContainer = styled.div`
     }
 `
 ;
-
-export const Main = styled.div`
-    background-color: ${props => props.theme.background};
-    height: 100%;
-`;
 
 
 export const FilterContainer = styled.div`
@@ -77,4 +73,8 @@ export const SelectDiv = styled.div`
 
 export const Footer = styled.div`
     width: 100%;
+`;
+
+export const searchIcon = styled(Icon)`
+    left: 20px;
 `;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Icon from '../Icon/';
 
 export const Header = styled.header`
 
@@ -19,4 +20,8 @@ export const TitleContainer = styled.div`
 
 export const LinkColorMode = styled.div`
     cursor: pointer;
+`;
+
+export const MoonIcon = styled(Icon)`
+    right: 88px;
 `;

@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import Icon from '../../Components/Icon';
+import Text from '../../Components/Text';
 
 export const Main = styled.div`
     background-color: ${props => props.theme.background};
@@ -13,7 +15,7 @@ export const Container = styled.div`
 
 export const TitleDiv = styled.div`
     width: 100%;
-    margin-bottom: ${props => props.margin}
+    margin-bottom: 20px;
 `;
 
 export const Button = styled.div`
@@ -31,10 +33,9 @@ export const Button = styled.div`
     }
 `;
 
-export const NoLink = styled(Button)`
+export const BorderButton = styled(Button)`
     padding: 5px 0px;
     margin: 0 5px 10px 5px;
-    text-align: center;
     color: ${props => props.theme.text};
     box-shadow: 0px 0px 3px 0 ${props => props.theme.text};
     border-radius: 5px;
@@ -81,18 +82,30 @@ export const CountryDetails = styled.div`
     }
 `;
 
+export const BoldText = styled(Text)`
+    font-weight: bold;
+    display: inline-block;
+`;
+
 export const Boxes = styled.div`
-    width: ${props => props.maxWidth ? '100%' : '270px'};
-    margin-top: ${props => props.mt20 ? '20px' : ''};
+    width: 270px;
+    margin-bottom: 20px;
 
     @media (max-width: 500px) {
         margin-bottom: ${props => props.mobileMargin ? '20px' : ''};
     }
-
 `;
 
-export const Strong = styled.strong`
-    margin-right: 5px;
-    margin-bottom: 10px;
-    display: inline-block;
+export const BorderBoxes = styled(Boxes)`
+    width: 100%;
+    
+    @media (max-width: 500px) {
+        ${BoldText} {
+            width: 100%;
+        }
+    }
+`;
+
+export const ArrowIcon = styled(Icon)`
+    left: 25px;
 `;
