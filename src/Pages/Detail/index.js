@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Header from '../../Components/Header';
 import Text from '../../Components/Text';
-import Boxes from '../../Components/Boxes';
 import Button from '../../Components/Button';
+import Boxes from '../../Components/Boxes';
 import { GlobalStyle } from '../../assets/css/global';
 import { switchTheme, colorScheme } from '../../utils/colors';
 import { Link } from "react-router-dom";
@@ -44,9 +44,9 @@ export default class Detail extends Component {
   render() {
     return (
       <>
-      <GlobalStyle theme={this.state.currentThemeObj} />
-      <ThemeProvider theme={this.state.currentThemeObj}>
-          <Styled.Main>
+        <GlobalStyle theme={this.state.currentThemeObj} />
+        <ThemeProvider theme={this.state.currentThemeObj}>
+          <>
             <Header
               handleThemeChange={this.handleThemeChange}
               colorMode={this.state.currentThemeObj.name}
@@ -56,18 +56,20 @@ export default class Detail extends Component {
               <Styled.Container>
                 <Button>
                   <Link to="/">
-                    <Styled.ArrowIcon icon={faArrowLeft} /><Text noMargin>Back</Text></Link>
+                    <Styled.ArrowIcon icon={faArrowLeft} />
+                    <Text noMargin>Back</Text>
+                  </Link>
                 </Button>
                 <Styled.CountryDetailContainer>
                   <Styled.ImageDiv>
                     <Styled.Image src={country.flag} alt="" />
                   </Styled.ImageDiv>
-                  <Boxes country={this.state.countries}></Boxes>
+                  <Boxes country={this.state.countries}/>
                 </Styled.CountryDetailContainer>
               </Styled.Container>
             ))}
-          </Styled.Main>
-      </ThemeProvider>
+          </>
+        </ThemeProvider>
       </>
     )
   }

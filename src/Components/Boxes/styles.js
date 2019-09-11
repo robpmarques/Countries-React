@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Button from '../Button';
 import Text from '../../Components/Text';
+import Title from '../../Components/Title';
 
 export const CountryDetails = styled.div`
 width: 50%;
@@ -19,17 +20,13 @@ flex-flow: row wrap;
 `;
 
 export const BoldText = styled(Text)`
-font-weight: bold;
-display: inline-block;
+    font-weight: bold;
+    display: inline-block;
 `;
 
 export const Boxes = styled.div`
-width: 270px;
-margin-bottom: 20px;
-
-@media (max-width: 500px) {
-    margin-bottom: ${props => props.mobileMargin ? '20px' : ''};
-}
+    width: 270px;
+    margin-bottom: 20px;
 `;
 
 export const BorderBoxes = styled(Boxes)`
@@ -38,6 +35,7 @@ width: 100%;
 @media (max-width: 500px) {
     ${BoldText} {
         width: 100%;
+        margin-right: 10px;
     }
 }
 `;

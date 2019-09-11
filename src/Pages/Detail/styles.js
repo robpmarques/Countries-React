@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 import Icon from '../../Components/Icon';
 
-export const Main = styled.div`
-    background-color: ${props => props.theme.background};
-    height: 100%;
-`;
-
 export const Container = styled.div`
     width: 90%;
     margin: 60px auto;

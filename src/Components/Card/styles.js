@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Title from '../../Components/Title';
 
 export const CardContainer = styled.div`
     margin-top: 50px;
@@ -39,4 +40,8 @@ export const Card = styled.div`
     @media (max-width: 690px) {
         width: 100%;
     }
+`;
+
+export const CardTitle = styled(Title)`
+    margin: 10px 0;
 `;

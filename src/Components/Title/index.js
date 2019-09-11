@@ -2,15 +2,14 @@ import React from 'react';
 import styled from  'styled-components';
 
 const StyledText = styled.h1`
-    margin: ${props => props.margin};
     color: ${props => props.theme.text};
-    font-size: ${props => props.fontSize};
+    margin: ${props => props.noMargin ? '0px' : ''};
 `;
 
 const Text = ({src, ...props}) => {
 
   return (
-      <StyledText margin={props.margin} fontSize={props.fontSize}>{props.children}</StyledText>
+      <StyledText {...props}>{props.children}</StyledText>
   );
 }
 

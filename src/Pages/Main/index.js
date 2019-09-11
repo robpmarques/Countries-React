@@ -41,7 +41,6 @@ export default class Main extends Component {
   handleThemeChange() {
     switchTheme();
     this.setState({ currentThemeObj: colorScheme });
-
   }
 
   handleSelectChange(e) {

@@ -5,13 +5,13 @@ import Text from '../Text';
 import Title from '../Title';
 
 const Boxes = ({ ...props }) => {
-    
+
     return (
         <Styled.CountryDetails>
             <Styled.TitleDiv>
                 <Title>{props.country[0].name}</Title>
             </Styled.TitleDiv>
-            <Styled.Boxes mobileMargin>
+            <Styled.Boxes>
                 <Text><Styled.BoldText>Native Name:</Styled.BoldText> {props.country[0].nativeName}</Text>
                 <Text><Styled.BoldText>Population:</Styled.BoldText> {numeral(props.country[0].population).format('0,00,000')}</Text>
                 <Text><Styled.BoldText>Region:</Styled.BoldText> {props.country[0].region}</Text>
