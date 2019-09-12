@@ -1,6 +1,5 @@
 import React from 'react';
 import * as Styled from './styles';
-import numeral from 'numeral';
 import Text from '../Text';
 import Title from '../Title';
 
@@ -13,7 +12,7 @@ const Boxes = ({ ...props }) => {
             </Styled.TitleDiv>
             <Styled.Boxes>
                 <Text><Styled.BoldText>Native Name:</Styled.BoldText> {props.country[0].nativeName}</Text>
-                <Text><Styled.BoldText>Population:</Styled.BoldText> {numeral(props.country[0].population).format('0,00,000')}</Text>
+                <Text><Styled.BoldText>Population:</Styled.BoldText> {props.country[0].population.toLocaleString()}</Text>
                 <Text><Styled.BoldText>Region:</Styled.BoldText> {props.country[0].region}</Text>
                 <Text><Styled.BoldText>Sub-region:</Styled.BoldText> {props.country[0].subregion}</Text>
                 <Text><Styled.BoldText>Capital:</Styled.BoldText> {props.country[0].capital}</Text>

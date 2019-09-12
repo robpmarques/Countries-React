@@ -5,7 +5,7 @@ export const CardContainer = styled.div`
     margin-top: 50px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: ${props => props.justify % 4 === 0 || props.justify >= 10 ? 'space-between' : 'space-around'};
+    justify-content: ${props => props.numberOfCards % 4 === 0 || props.numberOfCards >= 10 ? 'space-between' : 'space-around'};
     width: 100%;
 `;
 

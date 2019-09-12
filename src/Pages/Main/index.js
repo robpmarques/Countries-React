@@ -18,7 +18,7 @@ export default class Main extends Component {
     this.state = {
       countries: [],
       countryInput: '',
-      region: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
+      region: [],
       selectedRegion: '',
       currentThemeObj: {},
     }
@@ -34,8 +34,14 @@ export default class Main extends Component {
 
     let countriesResult = await axios.get('https://restcountries.eu/rest/v2/all');
 
-    this.setState({ countries: countriesResult.data });
-    this.setState({ currentThemeObj: colorScheme });
+    const uniqueRegion = Array.from(new Set(countriesResult.data.map(a => a.region)))
+      .map(region => {
+        return countriesResult.data.find(a => a.region === region);
+      });
+
+
+    this.setState({ countries: countriesResult.data, currentThemeObj: colorScheme, region: uniqueRegion });
+
   }
 
   handleThemeChange() {
@@ -91,9 +97,13 @@ export default class Main extends Component {
                 <Styled.SelectDiv>
                   <Select select={this.state.selectedRegion} selectChange={(e) => this.handleSelectChange(e)}>
                     <Styled.Option value="">Filter by region</Styled.Option>
-                    {this.state.region.map((value) => (
-                      <Styled.Option value={value}>{value}</Styled.Option>
-                    ))}
+                    {this.state.region.map((value) => {
+                      if (value.region !== ''){
+                        return (
+                          <Styled.Option value={value.region}>{value.region}</Styled.Option>
+                        );
+                      }
+                    })}
                   </Select>
                 </Styled.SelectDiv>
               </Styled.FilterContainer>

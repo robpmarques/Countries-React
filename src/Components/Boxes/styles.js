@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import Button from '../Button';
 import Text from '../../Components/Text';
-import Title from '../../Components/Title';
 
 export const CountryDetails = styled.div`
 width: 50%;
@@ -30,14 +29,14 @@ export const Boxes = styled.div`
 `;
 
 export const BorderBoxes = styled(Boxes)`
-width: 100%;
+    width: 100%;
 
-@media (max-width: 500px) {
-    ${BoldText} {
-        width: 100%;
-        margin-right: 10px;
+    @media (max-width: 500px) {
+        ${BoldText} {
+            width: 100%;
+            margin-right: 10px;
+        }
     }
-}
 `;
 
 export const BorderButton = styled(Button)`

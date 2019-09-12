@@ -13,7 +13,6 @@ export const InputContainer = styled.div`
 `
 ;
 
-
 export const FilterContainer = styled.div`
     display: flex;
     position: relative;
