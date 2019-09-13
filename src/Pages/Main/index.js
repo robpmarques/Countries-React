@@ -19,11 +19,9 @@ export default class Main extends Component {
       countries: [],
       region: [],
       filteredCountry: [],
-      selectedRegion: '',
       currentThemeObj: {},
     }
 
-    this.handleSelectChange = this.handleSelectChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
 
   }
@@ -38,17 +36,13 @@ export default class Main extends Component {
       });
 
 
-    this.setState({ countries: countriesResult.data, currentThemeObj: colorScheme, region: uniqueRegion });
+    this.setState({ countries: countriesResult.data, filteredCountry: countriesResult.data, currentThemeObj: colorScheme, region: uniqueRegion });
 
   }
 
   handleThemeChange() {
     switchTheme();
     this.setState({ currentThemeObj: colorScheme });
-  }
-
-  handleSelectChange(e) {
-    this.setState({ selectedRegion: e.target.value });
   }
 
   handleColorModeChange() {
@@ -65,10 +59,11 @@ export default class Main extends Component {
 
         let countryCondition = countries.name.toLowerCase().startsWith(value.toLowerCase()) !== false;
 
-        if (this.state.selectedRegion !== '') {
-
-          return countryCondition && countries.region === this.state.selectedRegion;
+        if (countries.region === value && countryCondition !== '') {
+          return true;
         }
+
+        // o filtro está funcionando pelo select e pelo input, mas o select não está restringindo o input.
 
         return countryCondition;
       });
@@ -120,7 +115,7 @@ export default class Main extends Component {
                   <Input input={this.state.countryInput} inputChange={(e) => this.handleInputChange(e)} placeholder="Search for a country..." />
                 </Styled.InputContainer>
                 <Styled.SelectDiv>
-                  <Select select={this.state.selectedRegion} selectChange={(e) => this.handleSelectChange(e)}>
+                  <Select select={this.state.selectedRegion} selectChange={(e) => this.handleInputChange(e)}>
                     <Styled.Option value="">Filter by region</Styled.Option>
                     {this.state.region.map((value) => {
                       if (value.region !== '') {
