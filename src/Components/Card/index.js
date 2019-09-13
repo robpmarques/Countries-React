@@ -6,8 +6,8 @@ import Text from '../Text';
 const Card = ({ ...props }) => {
 
     return (
-        <Styled.CardContainer numberOfCards={props.getRecordsByName().length}>
-            {props.getRecordsByName().map((value) => (
+        <Styled.CardContainer numberOfCards={props.filter.length}>
+            {props.filter.map((value) => (
                 <Styled.Card>
                     <Link to={{
                         pathname: '/Detail/' + value.alpha2Code

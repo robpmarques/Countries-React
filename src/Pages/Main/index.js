@@ -17,16 +17,14 @@ export default class Main extends Component {
 
     this.state = {
       countries: [],
-      countryInput: '',
       region: [],
+      filteredCountry: [],
       selectedRegion: '',
       currentThemeObj: {},
     }
 
     this.handleSelectChange = this.handleSelectChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.getRecordsByName = this.getRecordsByName.bind(this);
-    this.handleThemeChange = this.handleThemeChange.bind(this);
 
   }
 
@@ -58,25 +56,52 @@ export default class Main extends Component {
   }
 
   handleInputChange(e) {
-    this.setState({ countryInput: e.target.value.substr(0, 20) });
+
+    var value = e.target.value;
+
+    let debounced = this.debounce(() => {
+
+      let filteredCountry = this.state.countries.filter((countries) => {
+
+        let countryCondition = countries.name.toLowerCase().startsWith(value.toLowerCase()) !== false;
+
+        if (this.state.selectedRegion !== '') {
+
+          return countryCondition && countries.region === this.state.selectedRegion;
+        }
+
+        return countryCondition;
+      });
+
+      this.setState({ filteredCountry });
+
+    }, 500);
+
+    debounced();
+
   }
 
-  getRecordsByName() {
+  debounce(func, wait, immediate) {
+    var timeout;
 
-    let filteredCountry = this.state.countries.filter((countries) => {
+    return function executedFunction() {
+      var context = this;
+      var args = arguments;
 
-      let countryCondition = countries.name.toLowerCase().startsWith(this.state.countryInput.toLowerCase()) !== false;
+      var later = function () {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
 
-      if (this.state.selectedRegion !== '') {
+      var callNow = immediate && !timeout;
 
-        return countryCondition && countries.region === this.state.selectedRegion;
-      }
+      clearTimeout(timeout);
 
-      return countryCondition;
-    });
+      timeout = setTimeout(later, wait);
 
-    return filteredCountry;
-  }
+      if (callNow) func.apply(context, args);
+    };
+  };
 
   render() {
     return (
@@ -98,7 +123,7 @@ export default class Main extends Component {
                   <Select select={this.state.selectedRegion} selectChange={(e) => this.handleSelectChange(e)}>
                     <Styled.Option value="">Filter by region</Styled.Option>
                     {this.state.region.map((value) => {
-                      if (value.region !== ''){
+                      if (value.region !== '') {
                         return (
                           <Styled.Option value={value.region}>{value.region}</Styled.Option>
                         );
@@ -108,7 +133,7 @@ export default class Main extends Component {
                 </Styled.SelectDiv>
               </Styled.FilterContainer>
               {<Card
-                getRecordsByName={this.getRecordsByName}
+                filter={this.state.filteredCountry}
                 countries={this.state.countries}
                 numberOfCards={this.state.numberOfCards}
                 region={this.state.selectedRegion} />
