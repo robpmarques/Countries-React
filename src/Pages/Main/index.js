@@ -23,6 +23,7 @@ export default class Main extends Component {
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleThemeChange = this.handleThemeChange.bind(this);
 
   }
 
