@@ -1,14 +1,13 @@
 import React from 'react';
 import * as Styled from './styles';
 import Text from '../Text';
-import Title from '../Title';
 
 const Boxes = ({ ...props }) => {
 
     return (
         <Styled.CountryDetails>
             <Styled.TitleDiv>
-                <Title>{props.country[0].name}</Title>
+                <Text>{props.country[0].name}</Text>
             </Styled.TitleDiv>
             <Styled.Boxes>
                 <Text><Styled.BoldText>Native Name:</Styled.BoldText> {props.country[0].nativeName}</Text>

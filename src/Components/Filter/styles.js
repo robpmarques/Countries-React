@@ -1,27 +1,3 @@
-import styled from 'styled-components';
-import Icon from '../../Components/Icon';
-
-export const Container = styled.div`
-    width: 90%;
-    margin: 60px auto;
-    position: relative;
-    height: 100%;
-`;
-
-export const Option = styled.option`
-    width: 50px;
-    padding: 15px;
-    border-radius: 50px;
-`;
-
-export const Footer = styled.div`
-    width: 100%;
-`;
-
-export const searchIcon = styled(Icon)`
-    left: 20px;
-`;
-
 export const InputContainer = styled.div`
 
     width: 300px;
@@ -32,7 +8,7 @@ export const InputContainer = styled.div`
         margin-bottom: 10px;
     }
 `
-;
+    ;
 
 export const FilterContainer = styled.div`
     display: flex;
@@ -77,4 +53,34 @@ export const SelectDiv = styled.div`
         position: absolute;
         transform: rotate(135deg);
     }
+`;
+
+export const StyledSelect = styled.select`
+
+width: 100%;
+height: 100%;
+padding: 15px 20px;
+border-radius: 5px;
+border: 0;
+-moz-appearance:none;
+-webkit-appearance:none;
+color: ${props => props.theme.text};
+appearance:none;
+background-color: ${props => props.theme.primary};
+
+`;
+
+
+export const StyledInput = styled.input`
+border: 0;
+width: 100%;
+border-radius: 5px;
+color: ${props => props.theme.text};
+padding: 15px 0px 15px 50px;
+box-shadow: 0px 0px 3px -2px ${props => props.theme.text};
+background-color: ${props => props.theme.primary};
+
+&::placeholder {
+    color: ${props => props.theme.text};
+}
 `;

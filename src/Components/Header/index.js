@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Styled from './styles';
+import { switchTheme } from '../../utils/colors';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import Text from '../Text';
-import Title from '../Title';
 
-const Header = ({ ...props }) => {
+const Header = ({ onThemeChange }) => {
+
+    const [currentColorMode, setCurrentColorMode] = useState('');
+
+    const handleThemeChange = () => {
+        setCurrentColorMode(switchTheme);
+        onThemeChange(switchTheme);
+    }
 
     return (
 
         <Styled.Header>
             <Styled.TitleContainer>
-                <Title>Where in the world?</Title>
-                <Styled.LinkColorMode onClick={props.handleThemeChange}>
-                    <Text noMargin>{props.colorMode} Mode</Text>
+                <Text>Where in the world?</Text>
+                <Styled.LinkColorMode onClick={handleThemeChange}>
+                    <Styled.Text>{currentColorMode} Mode</Styled.Text>
                 </Styled.LinkColorMode>
                 <Styled.MoonIcon icon={faMoon} />
             </Styled.TitleContainer>

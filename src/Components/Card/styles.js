@@ -1,11 +1,15 @@
 import styled from 'styled-components';
-import Title from '../../Components/Title';
+import Text from '../../Components/Text';
+
+export const TextBold = styled(Text)`
+    font-weight: bold;
+`;
 
 export const CardContainer = styled.div`
     margin-top: 50px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: ${props => props.numberOfCards % 4 === 0 || props.numberOfCards >= 10 ? 'space-between' : 'space-around'};
+    justify-content: space-between;
     width: 100%;
 `;
 
@@ -42,6 +46,6 @@ export const Card = styled.div`
     }
 `;
 
-export const CardTitle = styled(Title)`
+export const CardTitle = styled(Text)`
     margin: 10px 0;
 `;

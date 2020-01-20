@@ -23,6 +23,7 @@ export function switchTheme() {
     } else {
         colorScheme = colors.light;
     }
+    return colorScheme;
 }
   
 
