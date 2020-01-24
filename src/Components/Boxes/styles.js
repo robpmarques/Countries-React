@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Button from '../Button';
-import Text from '../../Components/Text';
 
 export const CountryDetails = styled.div`
 width: 50%;
@@ -18,11 +17,6 @@ flex-flow: row wrap;
 }
 `;
 
-export const BoldText = styled(Text)`
-    font-weight: bold;
-    display: inline-block;
-`;
-
 export const Boxes = styled.div`
     width: 270px;
     margin-bottom: 20px;
@@ -32,7 +26,7 @@ export const BorderBoxes = styled(Boxes)`
     width: 100%;
 
     @media (max-width: 500px) {
-        ${BoldText} {
+        p {
             width: 100%;
             margin-right: 10px;
         }

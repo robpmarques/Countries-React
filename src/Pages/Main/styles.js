@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Icon from '../../Components/Icon';
 
 export const Container = styled.div`
     width: 90%;
@@ -8,18 +7,8 @@ export const Container = styled.div`
     height: 100%;
 `;
 
-export const Option = styled.option`
-    width: 50px;
-    padding: 15px;
-    border-radius: 50px;
-`;
-
 export const Footer = styled.div`
     width: 100%;
-`;
-
-export const searchIcon = styled(Icon)`
-    left: 20px;
 `;
 
 export const InputContainer = styled.div`

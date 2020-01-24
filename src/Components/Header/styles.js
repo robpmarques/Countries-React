@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Icon from '../Icon/';
-import TextComponent from '../Text';
 
 export const Header = styled.header`
 
@@ -8,10 +7,6 @@ export const Header = styled.header`
     box-shadow: 0px -7px 9px 0px ${props => props.theme.text};
     width: 100%;
     padding: 20px 0;
-`;
-
-export const Text = styled(TextComponent)`
-    margin: 0;
 `;
 
 export const TitleContainer = styled.div`

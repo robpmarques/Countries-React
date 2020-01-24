@@ -1,36 +1,35 @@
 import React from 'react';
 import * as Styled from './styles';
-import Text from '../Text';
 
 const Boxes = ({ ...props }) => {
 
     return (
         <Styled.CountryDetails>
             <Styled.TitleDiv>
-                <Text>{props.country[0].name}</Text>
+                <p>{props.country[0].name}</p>
             </Styled.TitleDiv>
             <Styled.Boxes>
-                <Text><Styled.BoldText>Native Name:</Styled.BoldText> {props.country[0].nativeName}</Text>
-                <Text><Styled.BoldText>Population:</Styled.BoldText> {props.country[0].population.toLocaleString()}</Text>
-                <Text><Styled.BoldText>Region:</Styled.BoldText> {props.country[0].region}</Text>
-                <Text><Styled.BoldText>Sub-region:</Styled.BoldText> {props.country[0].subregion}</Text>
-                <Text><Styled.BoldText>Capital:</Styled.BoldText> {props.country[0].capital}</Text>
+                <p><strong>Native Name:</strong> {props.country[0].nativeName}</p>
+                <p><strong>Population:</strong> {props.country[0].population.toLocaleString()}</p>
+                <p><strong>Region:</strong> {props.country[0].region}</p>
+                <p><strong>Sub-region:</strong> {props.country[0].subregion}</p>
+                <p><strong>Capital:</strong> {props.country[0].capital}</p>
             </Styled.Boxes>
             <Styled.Boxes>
-                <Text><Styled.BoldText>Top Level Domain: </Styled.BoldText> {props.country[0].topLevelDomain}</Text>
-                <Text><Styled.BoldText>Currencies: </Styled.BoldText>{props.country[0].currencies.map((currencies) => (
+                <p><strong>Top Level Domain: </strong> {props.country[0].topLevelDomain}</p>
+                <p><strong>Currencies: </strong>{props.country[0].currencies.map((currencies) => (
                     <>
                         {` ${currencies.code} `}
                     </>
-                ))}</Text>
-                <Text><Styled.BoldText>Language: </Styled.BoldText>{props.country[0].languages.map((languages) => (
+                ))}</p>
+                <p><strong>Language: </strong>{props.country[0].languages.map((languages) => (
                     <>
                         {` ${languages.name} `}
                     </>
-                ))}</Text>
+                ))}</p>
             </Styled.Boxes>
             <Styled.BorderBoxes>
-                <Styled.BoldText>Border Countries: </Styled.BoldText>
+                <strong>Border Countries: </strong>
                 {props.country[0].borders.map((borders) => (
                     <Styled.BorderButton>
                         {borders}

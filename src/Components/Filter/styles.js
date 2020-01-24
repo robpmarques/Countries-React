@@ -1,3 +1,6 @@
+import styled from 'styled-components';
+import Icon from '../Icon';
+
 export const InputContainer = styled.div`
 
     width: 300px;
@@ -55,7 +58,7 @@ export const SelectDiv = styled.div`
     }
 `;
 
-export const StyledSelect = styled.select`
+export const Select = styled.select`
 
 width: 100%;
 height: 100%;
@@ -71,7 +74,7 @@ background-color: ${props => props.theme.primary};
 `;
 
 
-export const StyledInput = styled.input`
+export const Input = styled.input`
 border: 0;
 width: 100%;
 border-radius: 5px;
@@ -83,4 +86,15 @@ background-color: ${props => props.theme.primary};
 &::placeholder {
     color: ${props => props.theme.text};
 }
+`;
+
+export const Option = styled.option`
+    width: 50px;
+    padding: 15px;
+    border-radius: 50px;
+`;
+
+
+export const searchIcon = styled(Icon)`
+    left: 20px;
 `;

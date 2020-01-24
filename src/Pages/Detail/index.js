@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Header from '../../Components/Header';
-import Text from '../../Components/Text';
 import Button from '../../Components/Button';
 import Boxes from '../../Components/Boxes';
 import { GlobalStyle } from '../../assets/css/global';
@@ -57,7 +56,7 @@ export default class Detail extends Component {
                 <Button>
                   <Link to="/">
                     <Styled.ArrowIcon icon={faArrowLeft} />
-                    <Text noMargin>Back</Text>
+                    <p>Back</p> {/* Text sem margin */}
                   </Link>
                 </Button>
                 <Styled.CountryDetailContainer>
