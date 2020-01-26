@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as Styled from './styles';
-import { switchTheme } from '../../utils/colors';
+import { switchTheme, colorScheme } from '../../utils/colors';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 
 const Header = ({ onThemeChange }) => {
@@ -8,9 +8,14 @@ const Header = ({ onThemeChange }) => {
     const [currentColorMode, setCurrentColorMode] = useState('');
 
     const handleThemeChange = () => {
-        setCurrentColorMode(switchTheme);
-        onThemeChange(switchTheme);
+        switchTheme();
+        setCurrentColorMode(colorScheme.name);
+        onThemeChange(colorScheme);
     }
+
+    useEffect(() => {
+        setCurrentColorMode(colorScheme.name);
+    }, [])
 
     return (
 

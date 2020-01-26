@@ -8,8 +8,9 @@ position: relative;
 display: flex;
 flex-flow: row wrap;
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     margin: 40px 5px;
+    width: 100%;
 }
 
 @media (max-width: 500px) {
@@ -20,15 +21,23 @@ flex-flow: row wrap;
 export const Boxes = styled.div`
     width: 270px;
     margin-bottom: 20px;
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 1200px) {
+        width: 100%;
+    }
 `;
 
 export const BorderBoxes = styled(Boxes)`
     width: 100%;
 
-    @media (max-width: 500px) {
-        p {
-            width: 100%;
-            margin-right: 10px;
+    @media (max-width: 768px) {
+        strong {
+            display: block;
+            margin-bottom: 10px;
         }
     }
 `;

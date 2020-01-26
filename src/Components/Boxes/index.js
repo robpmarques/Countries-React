@@ -1,28 +1,27 @@
 import React from 'react';
 import * as Styled from './styles';
 
-const Boxes = ({ ...props }) => {
-
+const Boxes = ({ country }) => {
     return (
         <Styled.CountryDetails>
             <Styled.TitleDiv>
-                <p>{props.country[0].name}</p>
+                <h1>{country.name}</h1>
             </Styled.TitleDiv>
             <Styled.Boxes>
-                <p><strong>Native Name:</strong> {props.country[0].nativeName}</p>
-                <p><strong>Population:</strong> {props.country[0].population.toLocaleString()}</p>
-                <p><strong>Region:</strong> {props.country[0].region}</p>
-                <p><strong>Sub-region:</strong> {props.country[0].subregion}</p>
-                <p><strong>Capital:</strong> {props.country[0].capital}</p>
+                <p><strong>Native Name:</strong> {country.nativeName}</p>
+                <p><strong>Population:</strong> {country.population && country.population.toLocaleString()}</p>
+                <p><strong>Region:</strong> {country.region}</p>
+                <p><strong>Sub-region:</strong> {country.subregion}</p>
+                <p><strong>Capital:</strong> {country.capital}</p>
             </Styled.Boxes>
             <Styled.Boxes>
-                <p><strong>Top Level Domain: </strong> {props.country[0].topLevelDomain}</p>
-                <p><strong>Currencies: </strong>{props.country[0].currencies.map((currencies) => (
+                <p><strong>Top Level Domain: </strong> {country.topLevelDomain}</p>
+                <p><strong>Currencies: </strong>{country.currencies && country.currencies.map((currencies) => (
                     <>
                         {` ${currencies.code} `}
                     </>
                 ))}</p>
-                <p><strong>Language: </strong>{props.country[0].languages.map((languages) => (
+                <p><strong>Language: </strong>{country.languages && country.languages.map((languages) => (
                     <>
                         {` ${languages.name} `}
                     </>
@@ -30,7 +29,7 @@ const Boxes = ({ ...props }) => {
             </Styled.Boxes>
             <Styled.BorderBoxes>
                 <strong>Border Countries: </strong>
-                {props.country[0].borders.map((borders) => (
+                {country.borders && country.borders.map((borders) => (
                     <Styled.BorderButton>
                         {borders}
                     </Styled.BorderButton>

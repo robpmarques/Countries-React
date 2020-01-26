@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const ImageDiv = styled.div`
     width: 500px;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1200px) {
         width: 100%;
     }
 `;

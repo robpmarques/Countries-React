@@ -17,7 +17,7 @@ const Card = ({ filter }) => {
                     }}>
                         <Styled.FlagImage src={value.flag} />
                         <Styled.CardBody>
-                            <p>{value.name}</p> {/* era classe card title */}
+                            <Styled.CardTitle>{value.name}</Styled.CardTitle> {/* era classe card title */}
                             <p><strong>Population: </strong>{value.population.toLocaleString()}</p>
                             <p><strong>Region: </strong>{value.region}</p>
                             <p><strong>Capital: </strong>{value.capital}</p>

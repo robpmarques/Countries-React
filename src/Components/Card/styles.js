@@ -40,3 +40,7 @@ export const Card = styled.div`
         width: 100%;
     }
 `;
+
+export const CardTitle = styled.h1`
+    margin: 10px 0;
+`;

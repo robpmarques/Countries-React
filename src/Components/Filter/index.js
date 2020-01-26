@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import * as Styled from './styles';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { getByRegion, searchByInput } from '../../utils/get';
 import axios from 'axios';
+import { getCountries } from '../../utils/get';
 
 export default function Filter({ ...props }) {
 
     const [currentInput, setCurrentInput] = useState("");
     const [currentSelect, setCurrentSelect] = useState("");
-    const [currentOption, setCurrentOption] = useState(["Africa", "Americas", "Asia", "Europe", "Oceania"]);
 
-    useEffect((currentSelect) => {
+    const currentOption = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+
+    useEffect(() => {
         const getResults = async () => {
-            if (currentInput) {
-                let search = await searchByInput(currentInput);
+            let search = await searchByInput(currentInput);
 
-                props._onChange(search);
-            } else {
-                props._onChange([]);
-            }
+            console.log(search);
+
+            props._onChange(search);
         }
 
         getResults();
@@ -26,32 +25,41 @@ export default function Filter({ ...props }) {
 
     const handleSelectChange = async filteredCountryText => {
 
+        setCurrentInput("");
+        setCurrentSelect(filteredCountryText);
+
         if (filteredCountryText) {
-            setCurrentInput("");
-            setCurrentSelect(filteredCountryText);
 
             let region = await getByRegion(filteredCountryText);
 
             props._onChange(region.data);
+        } else {
+            let region = await getCountries();
+
+            props._onChange(region.data);
         }
     };
+    
+    const getByRegion = country => {
+        return axios.get(`https://restcountries.eu/rest/v2/region/${country}`);
+    };
 
-    useEffect(() => {
-
-    }, []);
-
-    const searchByInput = async (search) => {
+    const searchByInput = async search => {
         if (currentSelect) {
             let region = await getByRegion(currentSelect);
-
             region = region.data.filter(region => {
                 return region.name.toLowerCase().startsWith(search.toLowerCase()) !== false;
             });
             return region;
         } else {
-            let result = await axios.get(`https://restcountries.eu/rest/v2/name/${search}`);
+            let result;
+            if (!search.length) {
+                result = await getCountries();
+            } else {
+                result = await axios.get(`https://restcountries.eu/rest/v2/name/${search}`);
+            }
 
-            return result;
+            return result.data;
         }
     };
 

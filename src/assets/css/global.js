@@ -6,4 +6,9 @@ export const GlobalStyle = createGlobalStyle`
         height: 100%;
         background-color: ${props => props.theme.background};
     }
+
+    p, h1, strong, a, span {
+        color: ${props => props.theme.text};
+        margin: 0;
+    }
 `;

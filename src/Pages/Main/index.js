@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import * as Styled from './styles';
 import { GlobalStyle } from '../../assets/css/global';
 import { colorScheme } from '../../utils/colors';
@@ -20,16 +19,18 @@ const Main = () => {
 
       setCountries(countriesResult.data);
       setCurrentTheme(colorScheme);
+      console.log(colorScheme);
     }
     asyncResults();
+
   }, []);
 
-  const handleColorModeChange = currentTheme => {
-    console.log(currentTheme);
+  const handleColorModeChange = theme => {
+    console.log(theme);
+    setCurrentTheme(theme);
   };
 
   const _onChange = (obj) => {
-    console.log(obj);
     setCountries(obj);
   };
 
